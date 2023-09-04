@@ -1,0 +1,11 @@
+event manager session cli username "PRIV_15_ACCOUNT" privilege 15
+ 
+event manager applet BOUNCE_PORTS_FIX
+event timer countdown time 300
+action 1.0 syslog msg "EEM Script run -- BOUNCE_PORTS_FIX— 300 seconds have passed. the ports g1/0/24 - 24 will be bounced"
+action 2.0 cli command "enable"
+action 2.5 cli command "config t"
+action 3.0 cli command "interface range g1/0/24 - 24"
+action 4.0 cli command "shut"
+action 5.0 cli command "no shut"
+action 6.0 cli command "end"
